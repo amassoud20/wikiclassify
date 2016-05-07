@@ -12,16 +12,30 @@ np.random.seed(1)
 
 ###############################################################################
 
+<<<<<<< HEAD
 def backtest(result_dir, classes, input, output):
 	for sequence in xrange(input.shape[0]):
 		name = random.randint(100000,999999)
 		cats = '<input type="radio" name="cat_select" onclick="highlight();">\n'.join([x for x in classes])
+=======
+def backtest(save_loc, classes, input, output):
+
+	for sequence in xrange(input.shape[0]):
+		fname = save_loc.split('/')[-1][:-4]
+		name = fname.replace('_', ' ')
+		save_loc = '/'.join(save_loc.split('/')[:-1])
+		cats = '\n'.join(['\t\t\t\t\t<option>'+x+'</option>' for x in classes])
+>>>>>>> refs/remotes/nathankjer/master
 		doc = """
 		<!DOCTYPE html>
 		<html>
 			<head>
 				<link rel="stylesheet" href="../styles/main.css">
+<<<<<<< HEAD
 				<title>Example</title>
+=======
+				<title>%s</title>
+>>>>>>> refs/remotes/nathankjer/master
 				<script src="../js/textfill.js"></script>
 				<script src="%s_meta.js"></script>
 			</head>
@@ -33,11 +47,20 @@ def backtest(result_dir, classes, input, output):
 					<input type="text" name="search" placeholder="Search" id="search" class="center" >
 				</div>
 				<div id="content" class="center box">
+<<<<<<< HEAD
 					<h1>Example Article Title</h1>
 					<form>
 					<input type="radio" name="cat_select" onclick="highlight();" checked>
 					%s
 					</form>
+=======
+					<h1>%s</h1>
+					Select a category:
+					<select id="cat_select" onchange="highlight();">
+					%s
+					</select><br/><br/>
+					<a href="https://en.wikipedia.org/wiki/%s">View on Wikipedia</a>
+>>>>>>> refs/remotes/nathankjer/master
 					<p id="article_text">
 					%s
 					</p>
@@ -45,15 +68,27 @@ def backtest(result_dir, classes, input, output):
 				<div id="footer">
 					<nav>
 		  				<a href="../about.html">About</a>
+<<<<<<< HEAD
+=======
+		  				<a href="../featured.html"><img height=12px; src="../images/star.svg"> Featured</a>
+>>>>>>> refs/remotes/nathankjer/master
 						<a href="../login.html">Login</a>
 					</nav>
 				</div>
 			</body>
+<<<<<<< HEAD
 		</html>""" % (name, cats, mat2str(input[sequence]))
 		form = '['+','.join(['%0.1f' for x in xrange(output.shape[-1])])+'],'
 		last_elem = '['+','.join(['0.0' for x in xrange(output.shape[-1])])+']'
 		np.savetxt(result_dir + '/%s_meta.js' % name, output[sequence],fmt=form,delimiter=',',header='var colors=[',footer=last_elem+']',comments='')
 		with open(result_dir + '/%s.html' % name, 'w+') as f:
+=======
+		</html>""" % (name, fname, name, cats, fname, mat2str(input[sequence]))
+		form = '['+','.join(['%0.2f' for x in xrange(output.shape[-1])])+'],'
+		last_elem = '['+','.join(['0.0' for x in xrange(output.shape[-1])])+']'
+		np.savetxt(save_loc + '/%s_meta.js' % fname, output[sequence],fmt=form,delimiter=',',header='var colors=[',footer=last_elem+']',comments='')
+		with open(save_loc + '/%s.html' % fname, 'w+') as f:
+>>>>>>> refs/remotes/nathankjer/master
 			f.write(doc)
 
 # Given a file string 's',

@@ -48,8 +48,11 @@ def run(model, inMatrix):
 	outMatrix = np.empty((inMatrix.shape[0], inMatrix.shape[1], classes), dtype=np.dtype('float32'))
 	for sample in xrange(len(slices)):
 		for piece in xrange(len(slices[sample])):
+<<<<<<< HEAD
 			if not piece%100:
 				print("%0.2f%% Done" % (100.0*piece/len(slices[sample])))
+=======
+>>>>>>> refs/remotes/nathankjer/master
 			slices[sample][piece] = np.pad(slices[sample][piece], ((0,window-slices[sample][piece].shape[0]),(0,0)), mode='constant')
 			prediction = model.predict(np.expand_dims(slices[sample][piece],axis=0))[0]
 			if piece > 0 and piece < len(slices[sample])-1:
