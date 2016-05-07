@@ -1,3 +1,10 @@
+/* 
+   written by: Adam Massoud
+   tested by: Adam Massoud
+   debugged by: Adam Massoud
+   CSS for popup 
+*/
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -57,13 +64,13 @@ html, body {
 	font-size: 30px;
 }
 
-.rating_block {
+.category_block {
 	width: 100%;
 	height: 75px;
 	background-color: #d9d9d9;
 }
 
-.rating_title {
+.category_title {
 	width: 100%;
 	height: 50px;
 	background-color: #d9d9d9;
@@ -71,16 +78,8 @@ html, body {
 	font-size: 15px;
 }
 
-.classification_block {
+.about_block {
 	width: 100%;
 	height: 75px;
 	background-color: #80ccff;
-}
-
-.classification_title {
-	width: 100%;
-	height: 50px;
-	background-color: #80ccff;
-	text-align: center;
-	font-size: 25px;
 }

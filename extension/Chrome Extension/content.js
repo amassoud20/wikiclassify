@@ -1,3 +1,8 @@
+// written by: Adam Massoud
+// tested by: Adam Massoud
+// debugged by: Adam Massoud
+// NOT USED
+
 /* showHide();
 
 function showHide() {
